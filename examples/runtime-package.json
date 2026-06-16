@@ -1,0 +1,52 @@
+{
+  "specVersion": "0.1",
+  "packageId": "demo-branch-001",
+  "entryNodeId": "node-start",
+  "canonRefs": [
+    {
+      "id": "demo-character-mara-vale",
+      "kind": "personaje"
+    },
+    {
+      "id": "demo-organization-glass-archive",
+      "kind": "organizacion"
+    }
+  ],
+  "variables": {
+    "knows_archive_secret": false
+  },
+  "localization": {
+    "line.node-start": "Mara waits beside the archive doors.",
+    "choice.ask": "Ask about the archive.",
+    "line.node-ask": "The archive remembers more than people do."
+  },
+  "nodes": [
+    {
+      "id": "node-start",
+      "type": "line",
+      "speakerRef": "demo-character-mara-vale",
+      "textKey": "line.node-start",
+      "choices": [
+        {
+          "id": "choice-ask",
+          "textKey": "choice.ask",
+          "targetNodeId": "node-ask"
+        }
+      ]
+    },
+    {
+      "id": "node-ask",
+      "type": "line",
+      "speakerRef": "demo-character-mara-vale",
+      "textKey": "line.node-ask",
+      "choices": [],
+      "consequences": [
+        {
+          "type": "setVariable",
+          "name": "knows_archive_secret",
+          "value": true
+        }
+      ]
+    }
+  ]
+}
